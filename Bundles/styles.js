@@ -58,7 +58,7 @@ ___CSS_LOADER_EXPORT___.push([module.i, "/* You can add global styles to this fi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\54351\source\repos\pgClipfs\proyecto-clip-money-c-g1c\virtualWallet\src\styles.scss */"+EN/");
+module.exports = __webpack_require__(/*! /Users/guadaluperickel/Projects/proyecto-clip-money-c-g1c/virtualWallet/src/styles.scss */"+EN/");
 
 
 /***/ }),

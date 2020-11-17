@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
-
+using System.Data;
 
 namespace VirtualWallet.Models
 {
@@ -44,9 +44,18 @@ namespace VirtualWallet.Models
                 comm.CommandText = "obtener_personas";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
 
+                //DataTable result = new DataTable();
                 SqlDataReader dr = comm.ExecuteReader();
+                //result.Load(dr);
+                //foreach (DataRow row in result.Rows)
+                //{
+                //    Persona p = new Persona(row.Field<int>(0), row.Field<string>(1), row.Field<string>(2));
+                //    lista.Add(p);
+                //}
                 while (dr.Read())
                 {
+
+
                     int id = dr.GetInt32(0);
                     string nombre = dr.GetString(1).Trim();
                     string apellido = dr.GetString(2).Trim();

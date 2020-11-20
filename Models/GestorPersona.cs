@@ -25,6 +25,9 @@ namespace VirtualWallet.Models
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
                 comm.Parameters.Add(new SqlParameter("@Nombre", nueva.Nombre));
                 comm.Parameters.Add(new SqlParameter("@Apellido", nueva.Apellido));
+                comm.Parameters.Add(new SqlParameter("@Direccion", nueva.Direccion));
+                comm.Parameters.Add(new SqlParameter("@Provincia", nueva.Provincia));
+                comm.Parameters.Add(new SqlParameter("@Ciudad", nueva.Ciudad));
 
                 id = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -80,7 +83,7 @@ namespace VirtualWallet.Models
 
                 SqlCommand comm = new SqlCommand("eliminar_persona", conn);
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@Id", id));
+                comm.Parameters.Add(new SqlParameter("@IdCliente", id));
 
                 comm.ExecuteNonQuery();
             }
@@ -129,7 +132,10 @@ namespace VirtualWallet.Models
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
                 comm.Parameters.Add(new SqlParameter("@Nombre", p.Nombre));
                 comm.Parameters.Add(new SqlParameter("@Apellido", p.Apellido));
-                comm.Parameters.Add(new SqlParameter("@Id", p.Id));
+                comm.Parameters.Add(new SqlParameter("@IdCliente", p.Id));
+                comm.Parameters.Add(new SqlParameter("@Direccion", p.Direccion));
+                comm.Parameters.Add(new SqlParameter("@Provincia", p.Provincia));
+                comm.Parameters.Add(new SqlParameter("@Ciudad", p.Ciudad));
 
                 comm.ExecuteNonQuery();
 

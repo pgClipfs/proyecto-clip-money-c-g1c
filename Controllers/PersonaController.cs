@@ -9,7 +9,7 @@ using VirtualWallet.Models;
 
 namespace VirtualWallet.Controllers
 {
-
+    [Authorize]
     [RoutePrefix("api/persona")]
     public class PersonaController : ApiController
     {

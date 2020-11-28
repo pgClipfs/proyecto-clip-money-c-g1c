@@ -165,6 +165,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bundles\assets\images\login-images\login.png" />
     <Content Include="Bundles\favicon.ico" />
     <Content Include="Bundles\index.html" />
     <Content Include="Bundles\main.js" />

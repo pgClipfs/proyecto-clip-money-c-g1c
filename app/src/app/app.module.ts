@@ -27,7 +27,7 @@ import { from } from 'rxjs';
     BrowserModule, 
     AppRoutingModule, 
     HttpClientModule,
-    ReactiveFormsModule
+    //ReactiveFormsModule
   ],
 
   providers: [

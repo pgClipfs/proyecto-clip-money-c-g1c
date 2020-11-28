@@ -15,12 +15,14 @@ import { Router } from '@angular/router';
 })
 export class AuthInterceptorService implements HttpInterceptor {
   constructor(private router: Router) {}
+  
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token: string = localStorage.getItem('token');
+    let token = localStorage.getItem('token');
+    console.log(token);
 
     let request = req;
 

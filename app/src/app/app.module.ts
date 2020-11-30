@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListaCreditosComponent } from './creditos/lista-creditos/lista-creditos.component';
 import { CuentasCreditoComponent } from './creditos/cuentas-credito/cuentas-credito.component';
-
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +11,20 @@ import { LoginComponent } from './components/login/login.component';
 import { CreditosComponent } from './creditos/creditos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { from } from 'rxjs';
+import { LoginService } from './services/login.service';
+import { HomeComponent } from './components/home/home.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const router: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -20,14 +33,17 @@ import { from } from 'rxjs';
     CreditosComponent, 
     FooterComponent, 
     ListaCreditosComponent,
-    CuentasCreditoComponent
+    CuentasCreditoComponent,
+    HomeComponent
   ],
 
   imports: [
     BrowserModule, 
-    AppRoutingModule, 
+    //AppRoutingModule, 
     HttpClientModule,
-    //ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(router)
   ],
 
   providers: [
@@ -35,7 +51,9 @@ import { from } from 'rxjs';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true,
+      
     },
+      LoginService
   ],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,5 @@
-<div class="container">
+<app-header *ngIf="!_router.url.includes('login' && 'registro')"></app-header>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <router-outlet></router-outlet>
-
 </div>
-
 <app-footer></app-footer>

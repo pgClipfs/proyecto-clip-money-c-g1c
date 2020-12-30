@@ -13,10 +13,10 @@ namespace VirtualWallet.Models
         public string Email { get => email; set => email = value; }
         public string Password { get => password; set => password = value; }
 
-        public RecuperarPassword (string email, string password)
+        public RecuperarPassword(string email, string password)
         {
             this.email = email;
-            this.password = password;            
+            this.password = password;
         }
     }
 }

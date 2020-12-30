@@ -20,7 +20,7 @@ namespace VirtualWallet.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "modificar_password";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@contraseña", pRecuperarPassword.Password));                
+                comm.Parameters.Add(new SqlParameter("@contraseña", pRecuperarPassword.Password));
 
                 comm.ExecuteNonQuery();
             }

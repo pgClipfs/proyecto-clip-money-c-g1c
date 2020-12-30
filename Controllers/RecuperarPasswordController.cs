@@ -24,7 +24,7 @@ namespace VirtualWallet.Controllers
         }
 
         // POST: api/RecuperarPassword
-        public void Post([FromBody]string value)
+        public void Post([FromBody] string value)
         {
         }
 

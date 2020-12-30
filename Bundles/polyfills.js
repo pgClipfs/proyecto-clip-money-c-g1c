@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\54351\source\repos\pgClipfs\proyecto-clip-money-c-g1c\app\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /Users/guadaluperickel/Projects/proyecto-clip-money-c-g1c/proyecto-clip-money-c-g1c/app/src/polyfills.ts */"hN/g");
 
 
 /***/ }),

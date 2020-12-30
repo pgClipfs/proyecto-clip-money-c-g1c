@@ -13,7 +13,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { from } from 'rxjs';
 import { LoginService } from './services/login.service';
 import { HomeComponent } from './components/home/home.component';
+import { RegistroComponent } from './components/registro/registro.component';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const router: Routes = [
   {
@@ -23,6 +26,14 @@ const router: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   }
 ];
 
@@ -34,7 +45,10 @@ const router: Routes = [
     FooterComponent, 
     ListaCreditosComponent,
     CuentasCreditoComponent,
-    HomeComponent
+    HomeComponent,
+    RegistroComponent,
+    DashboardComponent,
+    HeaderComponent
   ],
 
   imports: [

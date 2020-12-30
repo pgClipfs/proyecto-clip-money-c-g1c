@@ -1,6 +1,12 @@
-<div class="container">
+<app-header *ngIf="!_router.url.includes ('login') && ('registro')"></app-header>
+
+<!-- <app-header [ngIf]="!_router.url.includes('registro ' && 'login ')"></app-header> -->
+<!--<app-header *ngIf="!_router.url.includes ('login ') "></app-header> 
+        
+        Ejemplo encontrado: *ngIf="(condition1 && condition2) || condition3"-->
+
+<!-- <app-header *ngIf="!_router.url.includes('registro ')"></app-header> -->
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
     <router-outlet></router-outlet>
-
 </div>
-
 <app-footer></app-footer>

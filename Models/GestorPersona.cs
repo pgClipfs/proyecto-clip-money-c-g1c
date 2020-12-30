@@ -10,10 +10,13 @@ namespace VirtualWallet.Models
 {
     public class GestorPersonas
     {
-
+        private string StrConn;
+        public GestorPersonas ()
+        { 
+            this.StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString(); 
+        }
         public int AgregarPersona(Persona nueva)
         {
-            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             int id = 0;
 
             using (SqlConnection conn = new SqlConnection(StrConn))
@@ -37,7 +40,6 @@ namespace VirtualWallet.Models
         public List<Persona> ObtenerPersonas()
         {
             List<Persona> lista = new List<Persona>();
-            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
 
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
@@ -75,7 +77,6 @@ namespace VirtualWallet.Models
 
         public void Eliminar(int id)
         {
-            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
 
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
@@ -93,7 +94,6 @@ namespace VirtualWallet.Models
         public Persona ObtenerPorId(int id)
         {
             Persona p = null;
-            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
 
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
@@ -121,7 +121,6 @@ namespace VirtualWallet.Models
 
         public void ModificarPersona(Persona p)
         {
-            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
 
             using (SqlConnection conn = new SqlConnection(StrConn))
             {

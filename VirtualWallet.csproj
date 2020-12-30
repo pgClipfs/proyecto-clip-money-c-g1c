@@ -208,14 +208,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OperacionController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\TokenGenerator.cs" />
     <Compile Include="Controllers\TokenValidationHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Operacion.cs" />
+    <Compile Include="Models\Cuenta.cs" />
+    <Compile Include="Models\GestorOperacion.cs" />
+    <Compile Include="Models\GestorCuenta.cs" />
     <Compile Include="Models\GestorLogin.cs" />
     <Compile Include="Models\GestorPersona.cs" />
     <Compile Include="Models\LoginRequest.cs" />

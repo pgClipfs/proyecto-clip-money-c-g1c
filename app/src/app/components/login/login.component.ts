@@ -16,11 +16,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   public login() {   
-    debugger; 
     this.loginService.login (this.userLogin).subscribe (resp =>{
-      debugger;
       localStorage.setItem ('token',resp);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/dashboard']);
     });    
     }
 }

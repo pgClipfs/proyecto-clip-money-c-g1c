@@ -7,7 +7,11 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\Users\Jesica Belen Urey\Desktop\billeteravirtual\proyecto-clip-money-c-g1c\app\src\polyfills.ts */"hN/g");
+=======
+module.exports = __webpack_require__(/*! C:\Users\54351\source\repos\pgClipfs\proyecto-clip-money-c-g1c\app\src\polyfills.ts */"hN/g");
+>>>>>>> 384a274f5c360c0a5fae803272d481d8f2ad9dbe
 
 
 /***/ }),

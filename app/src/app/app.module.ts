@@ -17,6 +17,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
+import { IngresardineroComponent } from './ingresardinero/ingresardinero.component';
 
 const router: Routes = [
   {
@@ -34,6 +35,10 @@ const router: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'ingresardinero',
+    component: IngresardineroComponent
   }
 ];
 
@@ -48,7 +53,8 @@ const router: Routes = [
     HomeComponent,
     RegistroComponent,
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    IngresardineroComponent
   ],
 
   imports: [

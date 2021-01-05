@@ -50,7 +50,8 @@ namespace VirtualWallet.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "modificar_saldo";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@saldo", c.Saldo));                
+                comm.Parameters.Add(new SqlParameter("@saldo", c.Saldo));
+                comm.Parameters.Add(new SqlParameter("@idCuenta", c.Id));
 
                 comm.ExecuteNonQuery();
 

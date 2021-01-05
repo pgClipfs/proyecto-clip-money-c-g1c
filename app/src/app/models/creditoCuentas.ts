@@ -1,4 +1,4 @@
-export class creditoCuentas
+/*export class creditoCuentas
 {
     
     id?:number;
@@ -7,4 +7,4 @@ export class creditoCuentas
     FechaAlta:string;
     contraseña:string;
 
-}
+}*/

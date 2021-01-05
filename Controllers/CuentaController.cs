@@ -37,14 +37,14 @@ namespace VirtualWallet.Controllers
             return cuenta;
         }
 
-        /** PUT: api/Persona
-        public void Put(Cuenta persona)
+        //PUT: api/Cuenta
+        public void Put(Cuenta cuenta, int ope)
         {
-            GestorCuenta gPersona = new GestorCuenta();
-            gPersona.ModificarPersona(persona);
-
+            GestorCuenta gCuenta = new GestorCuenta();
+            gCuenta.ModificarSaldo(cuenta, ope);
         }
 
+        /**
         // DELETE: api/Persona/5
         public void Delete(int id)
         {

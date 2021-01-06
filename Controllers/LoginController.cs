@@ -5,12 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using VirtualWallet.Models;
 
 namespace VirtualWallet.Controllers
 {
     [AllowAnonymous]
     [RoutePrefix("api/login")]
+    [EnableCors(origins: "*", headers: "*", methods: "get,post")]
     public class LoginController : ApiController
     {
         [HttpGet]
@@ -30,7 +32,7 @@ namespace VirtualWallet.Controllers
 
         [HttpPost]
         [Route("authenticate")]
-        public IHttpActionResult Authenticate(LoginRequest login)
+        public IHttpActionResult Authenticate([FromBody]LoginRequest login)
         {
             if (login == null)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);

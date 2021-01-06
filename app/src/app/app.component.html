@@ -1,2 +1,9 @@
-<app-login></app-login>>
-<router-outlet></router-outlet>
+<app-header *ngIf="!_router.url.includes ('login') && !_router.url.includes ('registro') && !_router.url.includes ('ingresardinero') && !_router.url.includes ('perfil')"></app-header>
+
+<!--Ejemplo encontrado: *ngIf="(condition1 && condition2) || condition3" 
+    <app-header *ngIf="!_router.url.includes('registro ')"></app-header> -->
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
+    <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

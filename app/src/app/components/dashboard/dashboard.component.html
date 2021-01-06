@@ -31,8 +31,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>                                Envio de Efectivo
+                            <a class="nav-link" href="/ingresardinero">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>                                Ingresar Dinero
                             </a>
                         </li>
                     </ul>
@@ -80,6 +80,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">¡Bienvenido!</h1>
                     <br><br><br><br><br>
+
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
                             <button class="btn btn-sm btn-outline-secondary">Cuenta</button>
@@ -91,6 +92,41 @@
                 </button>
                     </div>
                 </div>
+
+
+
+                <div class="card-group">
+                    <div class="card col-4 mr-1">
+                        <img class="card-img-top" src="/Images/pesos.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">$100.00</h5>
+                            <p class="card-text">Caja de Ahorro en pesos Argentinos</p>
+                        </div>
+                    </div>
+                    <div class="card col-4 mr-1">
+                        <img class="card-img-top" src="/Images/dolar.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">$00.00</h5>
+                            <p class="card-text">Caja de Ahorro en Dolares</p>
+                        </div>
+                    </div>
+                    <div class="card col-4 mr-1">
+                        <img class="card-img-top" src="/Images/bitcoin.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">$00.00</h5>
+                            <p class="card-text">Cuenta de Criptomoneda</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <hr>
+
+                <br><br>
+
+
                 <div class="row">
                     <div class="container">
                         <div class="row">
@@ -137,11 +173,18 @@
                             <tr>
                                 <th>Fecha</th>
                                 <th>Concepto</th>
-                                <th>Moneda</th>
-                                <th>Importe</th>
+                                <th>Monto</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr *ngFor="let operacion of operaciones;" 
+                            > <!--mando el objeto seleccionado al component.ts-->
+                                <td>{{operacion.FechaHora}}</td>
+                                <td>{{operacion.TipoOperacion}}</td>
+                                <td>{{operacion.Monto}}</td>
+                            </tr>
+                        </tbody>
+                        <!-- <tbody>
                             <tr>
                                 <td>04/01/21</td>
                                 <td>Transferencia Recibida</td>
@@ -203,7 +246,7 @@
                                 <td>$5.000,00</td>
                             </tr>
                             <br><br>
-                        </tbody>
+                        </tbody> -->
                     </table>
                 </div>
             </main>

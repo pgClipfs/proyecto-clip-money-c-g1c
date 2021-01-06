@@ -15,7 +15,7 @@ namespace VirtualWallet.Models
         {
             this.StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
         }
-            public int AgregarCuenta(Cuenta nueva)
+        public int AgregarCuenta(Cuenta nueva)
         {
 
             int id = 0;
@@ -38,6 +38,48 @@ namespace VirtualWallet.Models
                 id = Convert.ToInt32(comm.ExecuteScalar());
             }
             return id;
+        }
+
+        public void ModificarSaldo(Cuenta c, int tipoOperacion)
+        {
+
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "modificar_saldo";
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@saldo", c.Saldo));
+                comm.Parameters.Add(new SqlParameter("@idCuenta", c.Id));
+
+                comm.ExecuteNonQuery();
+
+                Operacion ope = new Operacion();
+                
+                conn.Open();
+
+                int id = 0;
+
+                if (tipoOperacion == 1)
+                {
+                    ope.TipoOperacion = "Ingreso de saldo";
+                } 
+                else
+                {
+                    ope.TipoOperacion = "Retiro de saldo";
+                }
+                
+                ope.IdCuenta = c.Id;
+
+                SqlCommand comm2 = conn.CreateCommand();
+                comm2.CommandText = "agregar_operacion";
+                comm2.CommandType = System.Data.CommandType.StoredProcedure;                
+                comm2.Parameters.Add(new SqlParameter("@TipoOperacion", ope.TipoOperacion));
+                comm2.Parameters.Add(new SqlParameter("@IdCuenta", ope.IdCuenta));
+
+                id = Convert.ToInt32(comm2.ExecuteScalar());
+            }
         }
     }
 }

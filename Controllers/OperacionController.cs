@@ -8,7 +8,7 @@ using VirtualWallet.Models;
 
 namespace VirtualWallet.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/operacion")]
     public class OperacionController : ApiController
     {

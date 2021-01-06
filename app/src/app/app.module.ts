@@ -18,6 +18,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { IngresardineroComponent } from './ingresardinero/ingresardinero.component';
+import { ValidarcuentaComponent } from './validarcuenta/validarcuenta.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const router: Routes = [
   {
@@ -39,6 +41,14 @@ const router: Routes = [
   {
     path: 'ingresardinero',
     component: IngresardineroComponent
+  },
+  {
+    path: 'validarcuenta',
+    component: ValidarcuentaComponent
+  },
+  {
+    path: 'perfil',
+    component: PerfilComponent
   }
 ];
 
@@ -54,7 +64,9 @@ const router: Routes = [
     RegistroComponent,
     DashboardComponent,
     HeaderComponent,
-    IngresardineroComponent
+    IngresardineroComponent,
+    ValidarcuentaComponent,
+    PerfilComponent
   ],
 
   imports: [

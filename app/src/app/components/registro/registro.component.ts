@@ -17,6 +17,7 @@ export class RegistroComponent implements OnInit {
 import { Component, OnInit } from '@angular/core';
 import {RegistroService} from '../../services/registro.service';
 import { Registro } from '../../models/registro.model'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -30,13 +31,13 @@ export class RegistroComponent implements OnInit {
 
   selectedRegistro: Registro = new Registro();
 
-  constructor(private registroService: RegistroService) { }
+  constructor(private registroService: RegistroService, private router: Router) { }
   
   ngOnInit(): void {
-    this.registroService.getRegistros().subscribe(resp=>{
+    /*this.registroService.getRegistros().subscribe(resp=>{
       console.log(resp);
       this.registros=resp;
-    })
+    })*/
   }
 
   public onSubmit(registro: Registro)
@@ -44,7 +45,8 @@ export class RegistroComponent implements OnInit {
     if(registro.Id==0) //si el id es cero quiere decir que no hay ninguna persona seleccionada, por lo tanto crea una nueva
     {
       this.registroService.onCreatePersona(registro).subscribe(resp=>{
-        this.registros.push(resp);
+        // this.registros.push(resp);
+      this.router.navigate(['/validarcuenta']);  
       })
     }
     /*else { //sino es cero, se selecciono una persona y se la va a modificar

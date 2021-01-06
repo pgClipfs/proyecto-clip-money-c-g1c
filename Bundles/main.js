@@ -309,6 +309,9 @@ class AuthInterceptorService {
         return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((err) => {
             if (err.status === 401) {
                 this.router.navigateByUrl('/login');
+                console.log("Usuario incorrecto");
+                alert("Usuario y/o contraseña incorrectos");
+                // this.getElementById('alert').style.display='block';
             }
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["throwError"])(err);
         }));
@@ -1029,7 +1032,7 @@ class LoginComponent {
     }
 }
 LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"])); };
-LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LoginComponent, selectors: [["app-login"]], decls: 28, vars: 2, consts: [[1, "container"], [1, "row", "align-items-center"], [1, "cont-img-login", "rounded", "col-md-8"], ["src", "/Images/login.png", "alt", "imagen login", 1, "rounded"], [1, "form-container"], [1, "d-flex", "justify-content-center", "mt-3"], [1, "form-group", "mt-5"], ["for", "exampleInputEmail1"], ["type", "text", "aria-describedby", "emailHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "form-group"], ["for", "exampleInputPassword1"], ["type", "Password", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "form-group", "form-check"], ["type", "checkbox", "id", "exampleCheck1", 1, "form-check-input"], ["for", "exampleCheck1", 1, "form-check-label"], [1, "d-flex", "justify-content-center"], [1, "btn", "btn-primary", 3, "click"], [1, "text-center"], ["href", "/registro"]], template: function LoginComponent_Template(rf, ctx) { if (rf & 1) {
+LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LoginComponent, selectors: [["app-login"]], decls: 26, vars: 2, consts: [[1, "container"], [1, "row", "align-items-center"], [1, "cont-img-login", "rounded", "col-md-8"], ["src", "/Images/login.png", "alt", "imagen login", 1, "rounded"], [1, "form-container"], [1, "d-flex", "justify-content-center", "mt-3"], [1, "form-group", "mt-5"], ["for", "exampleInputEmail1"], ["type", "text", "aria-describedby", "emailHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "form-group"], ["for", "exampleInputPassword1"], ["type", "Password", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "d-flex", "justify-content-center"], [1, "btn", "btn-primary", 3, "click"], ["role", "alert", "id", "alert", 1, "alert", "alert-danger", 2, "display", "none"], [1, "text-center"], ["href", "/registro"]], template: function LoginComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -1055,23 +1058,20 @@ LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](17, "input", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "label", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Check me Out");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "button", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LoginComponent_Template_button_click_17_listener() { return ctx.login(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Ingresar");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "button", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LoginComponent_Template_button_click_21_listener() { return ctx.login(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Ingresar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, " Usuario y/o contrase\u00F1a incorrectos ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "Todav\u00EDa no ten\u00E9s una cuenta?");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "Todav\u00EDa no ten\u00E9s una cuenta?");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "a", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "Registrate Aqu\u00ED");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "a", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "Registrate Aqu\u00ED");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -1268,15 +1268,59 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegistroComponent", function() { return RegistroComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _models_registro_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../models/registro.model */ "p4Ym");
+/* harmony import */ var _services_registro_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/registro.service */ "xf4Y");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/*import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
+})
+export class RegistroComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}*/
+
+
+
 
 
 class RegistroComponent {
-    constructor() { }
+    constructor(registroService) {
+        this.registroService = registroService;
+        this.angular = "https://angular.io";
+        this.selectedRegistro = new _models_registro_model__WEBPACK_IMPORTED_MODULE_1__["Registro"]();
+    }
     ngOnInit() {
+        this.registroService.getRegistros().subscribe(resp => {
+            console.log(resp);
+            this.registros = resp;
+        });
+    }
+    onSubmit(registro) {
+        if (registro.Id == 0) //si el id es cero quiere decir que no hay ninguna persona seleccionada, por lo tanto crea una nueva
+         {
+            this.registroService.onCreatePersona(registro).subscribe(resp => {
+                this.registros.push(resp);
+            });
+        }
+        /*else { //sino es cero, se selecciono una persona y se la va a modificar
+          this.registroService.onUpdateRegistro(registro).subscribe(resp=>{
+          })
+    
+        }
+        
+        this.selectedRegistro=new Registro(); //limpia la variable selectedPersona*/
     }
 }
-RegistroComponent.ɵfac = function RegistroComponent_Factory(t) { return new (t || RegistroComponent)(); };
-RegistroComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegistroComponent, selectors: [["app-registro"]], decls: 28, vars: 0, consts: [[1, "container"], [1, "row", "align-items-center"], [1, "cont-img-login", "rounded", "col-md-8"], ["src", "/Images/login.png", "alt", "imagen login", 1, "rounded"], [1, "form-container"], [1, "d-flex", "justify-content-center", "mt-3"], [1, "form-group", "mt-5"], ["for", "exampleInputEmail1"], ["type", "text", "aria-describedby", "emailHelp", 1, "form-control"], [1, "form-group"], ["for", "exampleInputPassword1"], ["type", "email", 1, "form-control"], ["type", "Password", 1, "form-control"], [1, "d-flex", "justify-content-center"], ["href", "/validarcuenta"], [1, "btn", "btn-primary"]], template: function RegistroComponent_Template(rf, ctx) { if (rf & 1) {
+RegistroComponent.ɵfac = function RegistroComponent_Factory(t) { return new (t || RegistroComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_registro_service__WEBPACK_IMPORTED_MODULE_2__["RegistroService"])); };
+RegistroComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegistroComponent, selectors: [["app-registro"]], decls: 27, vars: 3, consts: [[1, "container"], [1, "row", "align-items-center"], [1, "cont-img-login", "rounded", "col-md-8"], ["src", "/Images/login.png", "alt", "imagen login", 1, "rounded"], [1, "form-container"], [1, "d-flex", "justify-content-center", "mt-3"], [1, "form-group", "mt-5"], ["for", "exampleInputEmail1"], ["type", "text", "name", "Usuario", "aria-describedby", "emailHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "form-group"], ["for", "exampleInputPassword1"], ["type", "email", "name", "Email", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "Password", "name", "Password", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "Password", 1, "form-control"], [1, "d-flex", "justify-content-center"], [1, "btn", "btn-primary", 3, "click"]], template: function RegistroComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -1289,32 +1333,36 @@ RegistroComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "label", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Nombre de Usuario");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "input", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "input", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function RegistroComponent_Template_input_ngModelChange_11_listener($event) { return ctx.selectedRegistro.Usuario = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "label", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "E-mail");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "input", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "input", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function RegistroComponent_Template_input_ngModelChange_15_listener($event) { return ctx.selectedRegistro.Email = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "label", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Contrase\u00F1a");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "input", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "input", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function RegistroComponent_Template_input_ngModelChange_19_listener($event) { return ctx.selectedRegistro.Password = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "label", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Repetir Contrase\u00F1a");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](23, "input", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](23, "input", 13);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "a", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "button", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "Registrarse");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "button", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function RegistroComponent_Template_button_click_25_listener() { return ctx.onSubmit(ctx.selectedRegistro); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](26, "Registrarse");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -1323,7 +1371,15 @@ RegistroComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, styles: ["body[_ngcontent-%COMP%] {\r\n  background-color: cornsilk;\r\n  margin: 0;\r\n}\r\n\r\n.cont-img-login[_ngcontent-%COMP%] {\r\n  align-content: center;\r\n  width: 100%;\r\n  margin-left: 15%;\r\n  margin-top: 4%;\r\n  padding: 0;\r\n}\r\n\r\n.form-container[_ngcontent-%COMP%] {\r\n  background-color: #f2f2f2;\r\n  width: 100%;\r\n  height: 500px;\r\n  border: 0px 0px 0px 1px solid black;\r\n}\r\n\r\nimg[_ngcontent-%COMP%] {\r\n  width: 100%;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlZ2lzdHJvLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwwQkFBMEI7RUFDMUIsU0FBUztBQUNYOztBQUVBO0VBQ0UscUJBQXFCO0VBQ3JCLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsY0FBYztFQUNkLFVBQVU7QUFDWjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixXQUFXO0VBQ1gsYUFBYTtFQUNiLG1DQUFtQztBQUNyQzs7QUFFQTtFQUNFLFdBQVc7QUFDYiIsImZpbGUiOiJyZWdpc3Ryby5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogY29ybnNpbGs7XHJcbiAgbWFyZ2luOiAwO1xyXG59XHJcblxyXG4uY29udC1pbWctbG9naW4ge1xyXG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICB3aWR0aDogMTAwJTtcclxuICBtYXJnaW4tbGVmdDogMTUlO1xyXG4gIG1hcmdpbi10b3A6IDQlO1xyXG4gIHBhZGRpbmc6IDA7XHJcbn1cclxuXHJcbi5mb3JtLWNvbnRhaW5lciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2YyZjJmMjtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDUwMHB4O1xyXG4gIGJvcmRlcjogMHB4IDBweCAwcHggMXB4IHNvbGlkIGJsYWNrO1xyXG59XHJcblxyXG5pbWcge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59Il19 */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.selectedRegistro.Usuario);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.selectedRegistro.Email);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.selectedRegistro.Password);
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"]], styles: ["body[_ngcontent-%COMP%] {\r\n  background-color: cornsilk;\r\n  margin: 0;\r\n}\r\n\r\n.cont-img-login[_ngcontent-%COMP%] {\r\n  align-content: center;\r\n  width: 100%;\r\n  margin-left: 15%;\r\n  margin-top: 4%;\r\n  padding: 0;\r\n}\r\n\r\n.form-container[_ngcontent-%COMP%] {\r\n  background-color: #f2f2f2;\r\n  width: 100%;\r\n  height: 500px;\r\n  border: 0px 0px 0px 1px solid black;\r\n}\r\n\r\nimg[_ngcontent-%COMP%] {\r\n  width: 100%;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlZ2lzdHJvLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwwQkFBMEI7RUFDMUIsU0FBUztBQUNYOztBQUVBO0VBQ0UscUJBQXFCO0VBQ3JCLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsY0FBYztFQUNkLFVBQVU7QUFDWjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixXQUFXO0VBQ1gsYUFBYTtFQUNiLG1DQUFtQztBQUNyQzs7QUFFQTtFQUNFLFdBQVc7QUFDYiIsImZpbGUiOiJyZWdpc3Ryby5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogY29ybnNpbGs7XHJcbiAgbWFyZ2luOiAwO1xyXG59XHJcblxyXG4uY29udC1pbWctbG9naW4ge1xyXG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICB3aWR0aDogMTAwJTtcclxuICBtYXJnaW4tbGVmdDogMTUlO1xyXG4gIG1hcmdpbi10b3A6IDQlO1xyXG4gIHBhZGRpbmc6IDA7XHJcbn1cclxuXHJcbi5mb3JtLWNvbnRhaW5lciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2YyZjJmMjtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDUwMHB4O1xyXG4gIGJvcmRlcjogMHB4IDBweCAwcHggMXB4IHNvbGlkIGJsYWNrO1xyXG59XHJcblxyXG5pbWcge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59Il19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](RegistroComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -1331,7 +1387,7 @@ RegistroComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
                 templateUrl: './registro.component.html',
                 styleUrls: ['./registro.component.css']
             }]
-    }], function () { return []; }, null); })();
+    }], function () { return [{ type: _services_registro_service__WEBPACK_IMPORTED_MODULE_2__["RegistroService"] }]; }, null); })();
 
 
 /***/ }),
@@ -1393,7 +1449,7 @@ class PerfilComponent {
     }
 }
 PerfilComponent.ɵfac = function PerfilComponent_Factory(t) { return new (t || PerfilComponent)(); };
-PerfilComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PerfilComponent, selectors: [["app-perfil"]], decls: 42, vars: 0, consts: [[1, "form-row"], [1, "form-group", "col-md-6"], ["for", "inputEmail4"], ["type", "email", "id", "inputEmail4", "value", "juanperez@gmail.com", 1, "form-control"], ["for", "inputPassword4"], ["type", "password", "id", "inputPassword4", "placeholder", "*******", 1, "form-control"], [1, "form-group"], ["for", "inputAddress"], ["type", "text", "id", "inputAddress", "placeholder", "Bv San Juan 350", 1, "form-control"], ["for", "inputAddress2"], ["type", "text", "id", "inputAddress2", "placeholder", "Derqui 33", 1, "form-control"], ["for", "inputCity"], ["type", "text", "id", "C\u00F3rdoba", 1, "form-control"], [1, "form-group", "col-md-4"], ["for", "inputState"], ["id", "inputState", 1, "form-control"], ["selected", ""], [1, "form-group", "col-md-2"], ["for", "inputZip"], ["type", "text", "value", "5000", 1, "form-control"], [1, "form-check"], ["type", "checkbox", "id", "gridCheck", 1, "form-check-input"], ["for", "gridCheck", 1, "form-check-label"], ["type", "submit", 1, "btn", "btn-primary"]], template: function PerfilComponent_Template(rf, ctx) { if (rf & 1) {
+PerfilComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PerfilComponent, selectors: [["app-perfil"]], decls: 42, vars: 0, consts: [[1, "form-row"], [1, "form-group", "col-md-6"], ["for", "inputEmail4"], ["type", "email", "id", "inputEmail4", "value", "ignaciomaguero@gmail.com", 1, "form-control"], ["for", "inputPassword4"], ["type", "password", "id", "inputPassword4", "placeholder", "*******", 1, "form-control"], [1, "form-group"], ["for", "inputAddress"], ["type", "text", "id", "inputAddress", "placeholder", "Bv San Juan 350", 1, "form-control"], ["for", "inputAddress2"], ["type", "text", "id", "inputAddress2", "placeholder", "Derqui 33", 1, "form-control"], ["for", "inputCity"], ["type", "text", "id", "C\u00F3rdoba", 1, "form-control"], [1, "form-group", "col-md-4"], ["for", "inputState"], ["id", "inputState", 1, "form-control"], ["selected", ""], [1, "form-group", "col-md-2"], ["for", "inputZip"], ["type", "text", "value", "5000", 1, "form-control"], [1, "form-check"], ["type", "checkbox", "id", "gridCheck", 1, "form-check-input"], ["for", "gridCheck", 1, "form-check-label"], ["type", "submit", 1, "btn", "btn-primary"]], template: function PerfilComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 1);
@@ -1473,6 +1529,25 @@ PerfilComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
 
 /***/ }),
 
+/***/ "p4Ym":
+/*!******************************************!*\
+  !*** ./src/app/models/registro.model.ts ***!
+  \******************************************/
+/*! exports provided: Registro */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Registro", function() { return Registro; });
+class Registro {
+    constructor() {
+        this.Id = 0;
+    }
+}
+
+
+/***/ }),
+
 /***/ "vXzj":
 /*!***********************************************************************!*\
   !*** ./src/app/creditos/cuentas-credito/cuentas-credito.component.ts ***!
@@ -1530,6 +1605,58 @@ CuentasCreditoComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
                 styleUrls: ['./cuentas-credito.component.css']
             }]
     }], function () { return []; }, null); })();
+
+
+/***/ }),
+
+/***/ "xf4Y":
+/*!**********************************************!*\
+  !*** ./src/app/services/registro.service.ts ***!
+  \**********************************************/
+/*! exports provided: RegistroService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegistroService", function() { return RegistroService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/*import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RegistroService {
+
+  constructor() { }
+}*/
+
+
+
+
+class RegistroService {
+    constructor(http) {
+        this.http = http;
+        this.url = "https://localhost:44359/api/persona";
+        console.log("Persona service funcionando");
+    }
+    onCreatePersona(registro) {
+        let header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json');
+        return this.http.post(this.url, registro, { headers: header }); //arma la url agregando el id a eliminar
+    }
+    getRegistros() {
+        let header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json');
+        return this.http.get(this.url, { headers: header });
+    }
+}
+RegistroService.ɵfac = function RegistroService_Factory(t) { return new (t || RegistroService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
+RegistroService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: RegistroService, factory: RegistroService.ɵfac, providedIn: 'root' });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](RegistroService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+                providedIn: 'root'
+            }]
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),

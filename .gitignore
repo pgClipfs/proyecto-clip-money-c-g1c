@@ -404,6 +404,5 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
-/BioWeb3.Api/BioWeb3.Api.xml
-/BioWeb3.Models/BioWeb3.Models.xml
-/BioWeb3.Services/BioWeb3.Services.xml
+
+/Bundles

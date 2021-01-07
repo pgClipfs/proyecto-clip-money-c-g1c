@@ -26,11 +26,14 @@ namespace VirtualWallet.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "insertar_persona";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@Nombre", nueva.Nombre));
+                /*comm.Parameters.Add(new SqlParameter("@Nombre", nueva.Nombre));
                 comm.Parameters.Add(new SqlParameter("@Apellido", nueva.Apellido));
                 comm.Parameters.Add(new SqlParameter("@Direccion", nueva.Direccion));
                 comm.Parameters.Add(new SqlParameter("@Provincia", nueva.Provincia));
-                comm.Parameters.Add(new SqlParameter("@Ciudad", nueva.Ciudad));
+                comm.Parameters.Add(new SqlParameter("@Ciudad", nueva.Ciudad));*/
+                comm.Parameters.Add(new SqlParameter("@Usuario", nueva.Usuario));
+                comm.Parameters.Add(new SqlParameter("@Password", nueva.Password));
+                comm.Parameters.Add(new SqlParameter("@Email", nueva.Email));
 
                 id = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -61,11 +64,27 @@ namespace VirtualWallet.Models
                 {
 
 
-                    int id = dr.GetInt32(0);
+                    /*int id = dr.GetInt32(0);
                     string nombre = dr.GetString(1).Trim();
                     string apellido = dr.GetString(2).Trim();
+                    string usuario = dr.GetString(3).Trim();
+                    string contraseña = dr.GetString(4).Trim();
+                    string email = dr.GetString(5).Trim();
+                    string direccion = dr.GetString(6).Trim();
+                    string provincia = dr.GetString(7).Trim();
+                    string ciudad = dr.GetString(8).Trim();*/
 
-                    Persona p = new Persona(id, nombre, apellido);
+                    int id = dr.GetInt32(0);
+                    string nombre = "";
+                    string apellido = "";
+                    string usuario = "";
+                    string contraseña = "";
+                    string email = "";
+                    string direccion = "";
+                    string provincia = "";
+                    string ciudad = "";
+
+                    Persona p = new Persona(id, nombre, apellido, email, usuario, contraseña, direccion, provincia, ciudad);
                     lista.Add(p);
                 }
 
@@ -108,8 +127,14 @@ namespace VirtualWallet.Models
                 {
                     string nombre = dr.GetString(1);
                     string apellido = dr.GetString(2);
+                    string usuario = dr.GetString(3).Trim();
+                    string contraseña = dr.GetString(4).Trim();
+                    string email = dr.GetString(5).Trim();
+                    string direccion = dr.GetString(6).Trim();
+                    string provincia = dr.GetString(7).Trim();
+                    string ciudad = dr.GetString(8).Trim();
 
-                    p = new Persona(id, nombre, apellido);
+                    p = new Persona(id, nombre, apellido, email, usuario, contraseña, direccion, provincia, ciudad);
                 }
 
                 dr.Close();

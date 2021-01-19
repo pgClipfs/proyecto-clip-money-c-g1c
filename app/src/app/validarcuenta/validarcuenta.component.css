@@ -26,3 +26,9 @@ img {
 p {
     margin-top: 20px;
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: #198ad1;
+    border-color: transparent;
+}

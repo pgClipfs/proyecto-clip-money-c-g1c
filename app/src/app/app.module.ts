@@ -20,6 +20,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { IngresardineroComponent } from './ingresardinero/ingresardinero.component';
 import { ValidarcuentaComponent } from './validarcuenta/validarcuenta.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { TransferenciaComponent } from './components/dashboard/transferencia/transferencia.component';
+import { GirarDescubiertoComponent } from './components/dashboard/girar-descubierto/girar-descubierto.component';
 
 const router: Routes = [
   {
@@ -66,7 +68,9 @@ const router: Routes = [
     HeaderComponent,
     IngresardineroComponent,
     ValidarcuentaComponent,
-    PerfilComponent
+    PerfilComponent,
+    TransferenciaComponent,
+    GirarDescubiertoComponent
   ],
 
   imports: [

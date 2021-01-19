@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../../services/dashboard.service';
 import { Operacion } from '../../models/operacion.model'
+import { Saldo } from '../../models/saldo.model'
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,7 @@ export class DashboardComponent implements OnInit {
 
   angular="https://angular.io";
   public operaciones: Operacion[]=[];
+  public saldo: Saldo;
 
   selectedOperacion: Operacion = new Operacion();
 
@@ -21,6 +23,11 @@ export class DashboardComponent implements OnInit {
       console.log(resp);
       this.operaciones=resp;
       console.log(this.operaciones); 
+
+      /*this.dashboardService.getOperaciones().subscribe(resp=>{
+        console.log(resp);
+        this.operaciones=resp;
+        console.log(this.operaciones);*/
     })
   }
 

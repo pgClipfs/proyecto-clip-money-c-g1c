@@ -83,8 +83,9 @@ namespace VirtualWallet.Models
                     string direccion = "";
                     string provincia = "";
                     string ciudad = "";
+                    int telefono = 0;
 
-                    Persona p = new Persona(id, nombre, apellido, email, usuario, contraseña, direccion, provincia, ciudad);
+                    Persona p = new Persona(id, nombre, apellido, email, usuario, contraseña, direccion, provincia, ciudad, telefono);
                     lista.Add(p);
                 }
 
@@ -118,23 +119,24 @@ namespace VirtualWallet.Models
             {
                 conn.Open();
 
-                SqlCommand comm = new SqlCommand("obtener_persona", conn);
+                SqlCommand comm = new SqlCommand("obtener_datos_perfil", conn);
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
                 comm.Parameters.Add(new SqlParameter("@id", id));
 
                 SqlDataReader dr = comm.ExecuteReader();
                 if (dr.Read())
                 {
-                    string nombre = dr.GetString(1);
-                    string apellido = dr.GetString(2);
-                    string usuario = dr.GetString(3).Trim();
-                    string contraseña = dr.GetString(4).Trim();
-                    string email = dr.GetString(5).Trim();
-                    string direccion = dr.GetString(6).Trim();
-                    string provincia = dr.GetString(7).Trim();
-                    string ciudad = dr.GetString(8).Trim();
+                    string nombre = "";
+                    string apellido = "";
+                    string usuario = "";
+                    string contraseña = "";
+                    string email = dr.GetString(2).Trim();
+                    string direccion = dr.GetString(0);
+                    string provincia = dr.GetString(4);
+                    string ciudad = dr.GetString(3);
+                    int telefono = dr.GetInt32(1);
 
-                    p = new Persona(id, nombre, apellido, email, usuario, contraseña, direccion, provincia, ciudad);
+                    p = new Persona(id, nombre, apellido, email, usuario, contraseña, direccion, provincia, ciudad, telefono);
                 }
 
                 dr.Close();

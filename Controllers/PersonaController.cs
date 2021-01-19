@@ -21,6 +21,7 @@ namespace VirtualWallet.Controllers
             return gPersona.ObtenerPersonas();
         }
 
+        // GET: api/Persona/5
         public Persona Get(int id)
         {
             GestorPersonas gPersona = new GestorPersonas();

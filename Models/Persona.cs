@@ -16,12 +16,13 @@ namespace VirtualWallet.Models
         private string usuario;
         private string password;
         private string email;
+        private int telefono;
 
         public Persona()
         {
         }
 
-        public Persona(int id, string nombre, string apellido, string email, string usuario, string password, string direccion, string provincia, string ciudad)
+        public Persona(int id, string nombre, string apellido, string email, string usuario, string password, string direccion, string provincia, string ciudad, int telefono)
         {
             this.id = id;
             this.nombre = nombre;
@@ -32,6 +33,7 @@ namespace VirtualWallet.Models
             this.usuario = usuario;
             this.password = password;
             this.email = email;
+            this.telefono = telefono;
         }
 
         public int Id { get => id; set => id = value; }
@@ -43,5 +45,6 @@ namespace VirtualWallet.Models
         public string Password { get => password; set => password = value; }
         public string Usuario { get => usuario; set => usuario = value; }
         public string Email { get => email; set => email = value; }
+        public int Telefono { get => telefono; set => telefono = value; }
     }
 }

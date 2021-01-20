@@ -137,14 +137,14 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Transferencias</h5>
                                         <p class="card-text">Transferí de la manera mas rápida y sencilla donde quieras.</p>
-                                        <a href="#" class="btn btn-primary">Transferí</a>
+                                        <a href="/transferencia" class="btn btn-primary">Transferí</a>
                                     </div>
                                 </div>
                                 <div class="card text-center col-3 mr-1">
                                     <div class="card-body">
                                         <h5 class="card-title">Giro al Descubierto</h5>
                                         <p class="card-text">Gira al descubierto hasta el 10% de tu saldo en cuenta.</p>
-                                        <a href="#" class="btn btn-primary">Girá</a>
+                                        <a href="/girar-descubierto" class="btn btn-primary">Girá</a>
                                     </div>
                                 </div>
                                 <div class="card text-center col-3 mr-1">
@@ -179,8 +179,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let operacion of operaciones;" 
-                            > <!--mando el objeto seleccionado al component.ts-->
+                            <tr *ngFor="let operacion of operaciones;">
+                                <!--mando el objeto seleccionado al component.ts-->
                                 <td>{{operacion.FechaHora}}</td>
                                 <td>{{operacion.TipoOperacion}}</td>
                                 <td>{{operacion.Monto}}</td>

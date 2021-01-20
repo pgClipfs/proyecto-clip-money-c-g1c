@@ -21,6 +21,7 @@ namespace VirtualWallet.Controllers
             return gPersona.ObtenerPersonas();
         }
 
+        // GET: api/Persona/5
         public Persona Get(int id)
         {
             GestorPersonas gPersona = new GestorPersonas();
@@ -43,6 +44,13 @@ namespace VirtualWallet.Controllers
             GestorPersonas gPersona = new GestorPersonas();
             gPersona.ModificarPersona(persona);
 
+        }
+
+        // PATCH: api/Persona
+        public void Patch(Persona persona)
+        {
+            GestorPersonas gPersona = new GestorPersonas();
+            gPersona.EditarPerfil(persona);
         }
 
         // DELETE: api/Persona/5

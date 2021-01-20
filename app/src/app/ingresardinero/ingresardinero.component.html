@@ -7,23 +7,23 @@
                 <div class="form-container">
                     <div class="d-flex justify-content-center mt-3">
                         <div>
-                            <form>
+                            
                                 <div class="form-group mt-5">
                                     <div class="form-group">
                                         <label for="formGroupExampleInput">Ingresar Dinero</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                                        <input [(ngModel)]="agregarMonto" type="number" class="form-control" id="formGroupExampleInput" placeholder="">
                                     </div>
-                                    <button type="button" class="btn btn-primary">Depositar</button>
+                                    <button (click)="agregarSaldo()" type="button" class="btn btn-primary">Depositar</button>
                                     <div class="form-group mt-5">
                                         <label for="formGroupExampleInput2">Retirar Dinero</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+                                        <input [(ngModel)]="extraerMonto" type="number" class="form-control" id="formGroupExampleInput2" placeholder="">
                                     </div>
-                                    <button type="button" class="btn btn-primary">Extraer</button>
+                                    <button (click)="extraerSaldo()" type="button" class="btn btn-primary">Extraer</button>
                                 </div>
-                            </form>
+                            
                             <div class="card col-12 mr-1">
                                 <div class="card-body">
-                                    <h4 class="card-title text-center mt-1">$100.00</h4>
+                                    <h4 class="card-title text-center mt-1">$ {{cuenta.Saldo}}</h4>
                                     <p class="card-text text-center">Dinero disponible en caja de ahorro en pesos</p>
                                 </div>
                             </div>

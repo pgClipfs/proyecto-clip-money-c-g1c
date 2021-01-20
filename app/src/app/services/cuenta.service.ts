@@ -1,30 +1,26 @@
-/*import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class DashboardService {
-
-  constructor() { }
-}*/
-
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Operacion } from '../models/operacion.model'
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { Cuenta } from '../models/cuenta.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardService {
+export class CuentaService {
   url="https://localhost:44359/api/";
   constructor( private http:HttpClient) { 
-    console.log("Operacion service funcionando");
+    
   }
 
-  getOperaciones(): Observable<Operacion[]>{
+  getCuentas(): Observable<Cuenta[]>{
     let header= new HttpHeaders().set('Content-Type','application/json');
-    return this.http.get<Operacion[]>(this.url+"operacion", {headers:header});
+    return this.http.get<Cuenta[]>(this.url+"cuenta", {headers:header});
+  }
+
+    updateSaldo(idCuenta:number, operacion:number, monto:number): Observable<Cuenta>{
+    let header= new HttpHeaders().set('Content-Type','application/json');
+    let urlParams=`${this.url}cuenta?idcuenta=${idCuenta}&operacion=${operacion}&monto=${monto}`;
+    return this.http.put<Cuenta>(urlParams, {headers:header});
   }
 
   /*onDeletePersona(id:number):Observable<number>{

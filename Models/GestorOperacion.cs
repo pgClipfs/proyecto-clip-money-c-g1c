@@ -42,7 +42,7 @@ namespace VirtualWallet.Models
                     string tipoOperacion = dr.GetString(2);
                     //int idCuentaDestino = dr.GetInt32(3);
                     //int idCuentaOrigen = dr.GetInt32(4);
-                    int monto = dr.GetInt32(3);
+                    decimal monto = dr.GetDecimal(3);
 
 
                     //Operacion p = new Operacion(id, fechaHora, tipoOperacion,idCuentaDestino,idCuentaOrigen);

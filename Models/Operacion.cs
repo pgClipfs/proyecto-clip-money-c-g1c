@@ -12,13 +12,13 @@ namespace VirtualWallet.Models
         private string tipoOperacion;
         private int idCuentaDestino;
         private int idCuenta;
-        private int monto;
+        private decimal monto;
 
         public Operacion() 
         { 
         }
 
-        public Operacion(int id, DateTime fechaHora, string tipoOperacion, int idCuentaDestino, int idCuenta, int monto)
+        public Operacion(int id, DateTime fechaHora, string tipoOperacion, int idCuentaDestino, int idCuenta, decimal monto)
         {
             this.id = id;
             this.fechaHora = fechaHora;
@@ -34,6 +34,6 @@ namespace VirtualWallet.Models
         public string TipoOperacion { get => tipoOperacion; set => tipoOperacion = value; }
         public int IdCuentaDestino { get => idCuentaDestino; set => idCuentaDestino = value; }
         public int IdCuenta { get => idCuenta; set => idCuenta = value; }
-        public int Monto { get => monto; set => monto = value; }
+        public decimal Monto { get => monto; set => monto = value; }
     }
 }

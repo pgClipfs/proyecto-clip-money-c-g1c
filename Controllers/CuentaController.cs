@@ -19,15 +19,16 @@ namespace VirtualWallet.Controllers
         {
             GestorCuenta gPersona = new GestorCuenta();
             return gPersona.ObtenerPersonas();
-        }
-
-        public Cuenta Get(int id)
-        {
-            GestorCuenta gPersona = new GestorCuenta();
-            return gPersona.ObtenerPorId(id);
         }*/
 
-         //POST: api/Cuenta
+        public List<Cuenta> Get()
+        {
+            GestorCuenta gCuenta = new GestorCuenta();
+            var cuentas = gCuenta.ObtenerDatosCuentas(User.Identity.Name);
+            return cuentas;
+        }
+
+        //POST: api/Cuenta
         public Cuenta Post(Cuenta cuenta)
         {
             int id;
@@ -38,10 +39,22 @@ namespace VirtualWallet.Controllers
         }
 
         //PUT: api/Cuenta
-        public void Put(Cuenta cuenta, int ope)
+        public Cuenta Put(int idCuenta, int operacion, decimal monto)
         {
             GestorCuenta gCuenta = new GestorCuenta();
-            gCuenta.ModificarSaldo(cuenta, ope);
+            var cuenta = gCuenta.ObtenerDatosCuenta(idCuenta);
+            if (cuenta != null)
+            {
+                if (operacion == 1)
+                    cuenta.Saldo = cuenta.Saldo + monto;
+                else if (operacion == 2)
+                    cuenta.Saldo = cuenta.Saldo - monto;
+
+                if (operacion == 1 || operacion == 2)
+                    gCuenta.ModificarSaldo (cuenta, operacion, monto);
+            }
+
+            return cuenta;
         }
 
         /**

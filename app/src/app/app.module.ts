@@ -51,6 +51,14 @@ const router: Routes = [
   {
     path: 'perfil',
     component: PerfilComponent
+  },
+  {
+    path: 'transferencia',
+    component: TransferenciaComponent
+  },
+  {
+    path: 'girar-descubierto',
+    component: GirarDescubiertoComponent
   }
 ];
 

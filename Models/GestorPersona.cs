@@ -168,5 +168,28 @@ namespace VirtualWallet.Models
 
             }
         }
+
+        public void EditarPerfil(Persona p)
+        {
+
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "editar_perfil";
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@IdCliente", p.Id));
+                comm.Parameters.Add(new SqlParameter("@Direccion", p.Direccion));
+                comm.Parameters.Add(new SqlParameter("@Telefono", p.Telefono));
+                comm.Parameters.Add(new SqlParameter("@Email", p.Email));                
+                comm.Parameters.Add(new SqlParameter("@Ciudad", p.Ciudad));
+                comm.Parameters.Add(new SqlParameter("@Provincia", p.Provincia));
+
+                comm.ExecuteNonQuery();
+
+
+            }
+        }
     }
 }

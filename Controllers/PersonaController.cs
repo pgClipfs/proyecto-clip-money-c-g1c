@@ -46,6 +46,13 @@ namespace VirtualWallet.Controllers
 
         }
 
+        // PATCH: api/Persona
+        public void Patch(Persona persona)
+        {
+            GestorPersonas gPersona = new GestorPersonas();
+            gPersona.EditarPerfil(persona);
+        }
+
         // DELETE: api/Persona/5
         public void Delete(int id)
         {

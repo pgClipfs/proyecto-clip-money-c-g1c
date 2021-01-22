@@ -14,7 +14,7 @@ namespace VirtualWallet.Models
         {
             this.StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
         }
-        public List<Operacion> ObtenerOperaciones()
+        public List<Operacion> ObtenerOperaciones(string usuario)
         {
             List<Operacion> lista = new List<Operacion>();
 
@@ -25,6 +25,7 @@ namespace VirtualWallet.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "top10operaciones";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@Usuario",usuario));
 
                 //DataTable result = new DataTable();
                 SqlDataReader dr = comm.ExecuteReader();

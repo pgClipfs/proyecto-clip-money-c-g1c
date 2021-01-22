@@ -181,9 +181,9 @@
                         <tbody>
                             <tr *ngFor="let operacion of operaciones;">
                                 <!--mando el objeto seleccionado al component.ts-->
-                                <td>{{operacion.FechaHora}}</td>
+                                <td>{{operacion.FechaHora | date:'short'}}</td>
                                 <td>{{operacion.TipoOperacion}}</td>
-                                <td>{{operacion.Monto}}</td>
+                                <td class="text-right">{{operacion.Monto}}</td>
                             </tr>
                         </tbody>
                         <!-- <tbody>

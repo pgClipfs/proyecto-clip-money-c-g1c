@@ -17,7 +17,7 @@ namespace VirtualWallet.Controllers
         public IEnumerable<Operacion> Get()
         {
             GestorOperacion gOperacion = new GestorOperacion();
-            return gOperacion.ObtenerOperaciones();
+            return gOperacion.ObtenerOperaciones(User.Identity.Name);
         }
     }
 }

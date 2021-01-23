@@ -45,8 +45,8 @@ export class RegistroComponent implements OnInit {
     if(registro.Id==0) //si el id es cero quiere decir que no hay ninguna persona seleccionada, por lo tanto crea una nueva
     {
       this.registroService.onCreatePersona(registro).subscribe(resp=>{
-        // this.registros.push(resp);
-      this.router.navigate(['/validarcuenta']);  
+      console.log(resp);
+      this.router.navigate(['/validarcuenta', resp.Id]);  
       })
     }
     /*else { //sino es cero, se selecciono una persona y se la va a modificar

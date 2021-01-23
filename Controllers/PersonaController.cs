@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -59,6 +62,25 @@ namespace VirtualWallet.Controllers
             GestorPersonas gPersona = new GestorPersonas();
             gPersona.Eliminar(id);
 
+        }
+        [System.Web.Http.HttpPost()]
+        [System.Web.Http.Route("updatephotoclient")]
+        public void UpdatePhotoClient([System.Web.Http.FromBody] PersonaActualizarFoto personaActualizarFoto)
+        {
+            GestorPersonas gPersona = new GestorPersonas();
+            
+            gPersona.ActualizarFotoPersona(personaActualizarFoto.Id, personaActualizarFoto.FotoFrente, personaActualizarFoto.FotoReverso);
+
+        }
+
+        private string ConvertToBase64(IFormFile file) {
+            var photoStream = file.OpenReadStream();
+            using (MemoryStream memStream = new MemoryStream())
+            {
+                photoStream.CopyTo(memStream);
+                var PhotoBase64=Convert.ToBase64String( memStream.ToArray());
+                return PhotoBase64;
+            }
         }
     }
 }

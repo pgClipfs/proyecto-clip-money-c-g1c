@@ -45,7 +45,7 @@ const router: Routes = [
     component: IngresardineroComponent
   },
   {
-    path: 'validarcuenta',
+    path: 'validarcuenta/:id',
     component: ValidarcuentaComponent
   },
   {

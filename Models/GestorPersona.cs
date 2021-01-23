@@ -191,5 +191,26 @@ namespace VirtualWallet.Models
 
             }
         }
+
+        public void ActualizarFotoPersona(int idCliente, string fotoFront, string fotoBack)
+        {
+
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "actualizar_dni_persona";
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@FotoFront", fotoFront));
+                comm.Parameters.Add(new SqlParameter("@FotoBack", fotoBack));
+                comm.Parameters.Add(new SqlParameter("@IdCliente", idCliente));
+                
+
+                comm.ExecuteNonQuery();
+
+
+            }
+        }
     }
 }

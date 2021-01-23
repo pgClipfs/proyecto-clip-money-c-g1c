@@ -38,9 +38,7 @@ export class AuthInterceptorService implements HttpInterceptor {
       catchError((err: HttpErrorResponse) => {
         if (err.status === 401) {
           this.router.navigateByUrl('/login');
-          console.log("Usuario incorrecto");
-          alert("Usuario y/o contraseña incorrectos");
-          // this.getElementById('alert').style.display='block';
+          console.log("Usuario incorrecto");          
         }
         return throwError(err);
       })

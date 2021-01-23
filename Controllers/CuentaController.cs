@@ -9,7 +9,7 @@ using VirtualWallet.Models;
 
 namespace VirtualWallet.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/cuenta")]
     public class CuentaController : ApiController
     {
@@ -49,12 +49,31 @@ namespace VirtualWallet.Controllers
                     cuenta.Saldo = cuenta.Saldo + monto;
                 else if (operacion == 2)
                     cuenta.Saldo = cuenta.Saldo - monto;
-
-                if (operacion == 1 || operacion == 2)
+                else if (operacion == 3)
+                    cuenta.Saldo = cuenta.Saldo - monto;
+                if (operacion == 1 || operacion == 2 || operacion == 3)
                     gCuenta.ModificarSaldo (cuenta, operacion, monto);
             }
 
             return cuenta;
+        }
+
+        //PATCH: api/Cuenta        
+        public Cuenta Patch(int idCuentaOrigen, int idCuentaDestino, decimal monto)
+        {
+            GestorCuenta gCuenta = new GestorCuenta();
+            var cuentaOrigen = gCuenta.ObtenerDatosCuenta(idCuentaOrigen);
+            var cuentaDestino = gCuenta.ObtenerDatosCuenta(idCuentaDestino);            
+
+            if ((cuentaOrigen != null)&&(cuentaDestino!=null))
+            { 
+                cuentaOrigen.Saldo = cuentaOrigen.Saldo - monto;
+                cuentaDestino.Saldo = cuentaDestino.Saldo + monto;
+                
+                gCuenta.RealizarTransferencia(cuentaOrigen, cuentaDestino, monto);
+            }
+
+            return cuentaOrigen;
         }
 
         /**

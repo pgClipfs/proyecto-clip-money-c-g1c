@@ -31,6 +31,12 @@ export class RegistroService {
     return this.http.get<Registro[]>(this.url, {headers:header});
   }
 
+  updateFoto(idCliente:number, FotoFrente:string, FotoReverso:string): Observable<boolean>{
+    let header = new HttpHeaders().set('Content-Type','application/json');
+    var body = {"id":idCliente,"FotoFrente":FotoFrente,"FotoReverso":FotoReverso};
+    return this.http.post<boolean>(this.url+"/updatephotoclient", body, {headers:header});
+  }
+
   /*
 
   onDeletePersona(id:number):Observable<number>{

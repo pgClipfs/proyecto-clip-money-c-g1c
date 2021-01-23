@@ -65,7 +65,10 @@ namespace VirtualWallet.Models
                 } 
                 else
                 {
-                    operacion.TipoOperacion = "Retiro de saldo";
+                    if (tipoOperacion == 2)
+                        operacion.TipoOperacion = "Retiro de saldo";
+                    else if (tipoOperacion == 3)
+                        operacion.TipoOperacion = "Giro al descubierto";
                 }
 
                 SqlCommand comm2 = conn.CreateCommand();
@@ -97,7 +100,7 @@ namespace VirtualWallet.Models
 
                 int idOp1 = 0;
                 
-                operacion.TipoOperacion = "Transferencia a usuario";
+                operacion.TipoOperacion = "Transferencia a CVU: " + cuentaDestino.Id ;
 
                 SqlCommand comm2 = conn.CreateCommand();
                 comm2.CommandText = "agregar_transferencia";
@@ -122,7 +125,7 @@ namespace VirtualWallet.Models
 
                 int idOp2 = 0;
 
-                operacion2.TipoOperacion = "Recepción transferencia";
+                operacion2.TipoOperacion = "Recepción transferencia desde CVU: " + cuentaOrigen.Id;
 
                 SqlCommand comm4 = conn.CreateCommand();
                 comm4.CommandText = "agregar_transferencia";

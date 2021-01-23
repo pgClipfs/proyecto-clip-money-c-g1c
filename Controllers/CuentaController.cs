@@ -49,20 +49,21 @@ namespace VirtualWallet.Controllers
                     cuenta.Saldo = cuenta.Saldo + monto;
                 else if (operacion == 2)
                     cuenta.Saldo = cuenta.Saldo - monto;
-
-                if (operacion == 1 || operacion == 2)
+                else if (operacion == 3)
+                    cuenta.Saldo = cuenta.Saldo - monto;
+                if (operacion == 1 || operacion == 2 || operacion == 3)
                     gCuenta.ModificarSaldo (cuenta, operacion, monto);
             }
 
             return cuenta;
         }
 
-        //PUT: api/Cuenta        
-        public Cuenta Put(int idCuenta, string usuario, decimal monto)
+        //PATCH: api/Cuenta        
+        public Cuenta Patch(int idCuentaOrigen, int idCuentaDestino, decimal monto)
         {
             GestorCuenta gCuenta = new GestorCuenta();
-            var cuentaOrigen = gCuenta.ObtenerDatosCuenta(idCuenta);
-            var cuentaDestino = gCuenta.ObtenerDatosCuenta(usuario);
+            var cuentaOrigen = gCuenta.ObtenerDatosCuenta(idCuentaOrigen);
+            var cuentaDestino = gCuenta.ObtenerDatosCuenta(idCuentaDestino);            
 
             if ((cuentaOrigen != null)&&(cuentaDestino!=null))
             { 

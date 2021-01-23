@@ -23,6 +23,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { TransferenciaComponent } from './components/dashboard/transferencia/transferencia.component';
 import { GirarDescubiertoComponent } from './components/dashboard/girar-descubierto/girar-descubierto.component';
 
+
 const router: Routes = [
   {
     path: 'home',

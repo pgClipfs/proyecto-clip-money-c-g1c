@@ -100,10 +100,11 @@ namespace VirtualWallet.Models
                 operacion.TipoOperacion = "Transferencia a usuario";
 
                 SqlCommand comm2 = conn.CreateCommand();
-                comm2.CommandText = "agregar_operacion";
+                comm2.CommandText = "agregar_transferencia";
                 comm2.CommandType = System.Data.CommandType.StoredProcedure;
                 comm2.Parameters.Add(new SqlParameter("@TipoOperacion", operacion.TipoOperacion));
                 comm2.Parameters.Add(new SqlParameter("@IdCuenta", cuentaOrigen.Id));
+                comm2.Parameters.Add(new SqlParameter("@IdCuentaDestino", cuentaDestino.Id));
                 comm2.Parameters.Add(new SqlParameter("@Monto", monto));
 
                 idOp1 = Convert.ToInt32(comm2.ExecuteScalar());
@@ -124,10 +125,11 @@ namespace VirtualWallet.Models
                 operacion2.TipoOperacion = "Recepción transferencia";
 
                 SqlCommand comm4 = conn.CreateCommand();
-                comm4.CommandText = "agregar_operacion";
+                comm4.CommandText = "agregar_transferencia";
                 comm4.CommandType = System.Data.CommandType.StoredProcedure;
                 comm4.Parameters.Add(new SqlParameter("@TipoOperacion", operacion2.TipoOperacion));
                 comm4.Parameters.Add(new SqlParameter("@IdCuenta", cuentaDestino.Id));
+                comm4.Parameters.Add(new SqlParameter("@IdCuentaDestino", cuentaOrigen.Id));
                 comm4.Parameters.Add(new SqlParameter("@Monto", monto));
 
                 idOp2 = Convert.ToInt32(comm4.ExecuteScalar());

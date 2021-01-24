@@ -21,8 +21,12 @@ export class IngresardineroComponent implements OnInit {
     this.cuentaService.getCuentas().subscribe((resp) => {
       console.log(resp);
       let cuentas = resp;
-      let cuenta = cuentas.find((c) => c.Moneda.trim() == 'ARS');
-      if (cuenta !== undefined) this.cuenta = cuenta;
+      let cuenta = cuentas.find((c) => c.Moneda.trim() == 'ARS');      
+      if (cuenta !== undefined) {
+        this.cuenta = cuenta;
+        console.log('fsfdsdf');        
+        console.log(this.cuenta);        
+      }
     });
   }
 

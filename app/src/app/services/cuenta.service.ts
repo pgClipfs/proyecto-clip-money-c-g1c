@@ -17,10 +17,16 @@ export class CuentaService {
     return this.http.get<Cuenta[]>(this.url+"cuenta", {headers:header});
   }
 
-    updateSaldo(idCuenta:number, operacion:number, monto:number): Observable<Cuenta>{
+  updateSaldo(idCuenta:number, operacion:number, monto:number): Observable<Cuenta>{
     let header= new HttpHeaders().set('Content-Type','application/json');
     let urlParams=`${this.url}cuenta?idcuenta=${idCuenta}&operacion=${operacion}&monto=${monto}`;
     return this.http.put<Cuenta>(urlParams, {headers:header});
+  }
+
+  createTransferencia(idCuentaOrigen:number, idCuentaDestino:number, monto:number): Observable<Cuenta>{
+    let header= new HttpHeaders().set('Content-Type','application/json');
+    let urlParams=`${this.url}cuenta?idcuentaorigen=${idCuentaOrigen}&idCuentaDestino=${idCuentaDestino}&monto=${monto}`;
+    return this.http.patch<Cuenta>(urlParams, {headers:header});
   }
 
   /*onDeletePersona(id:number):Observable<number>{

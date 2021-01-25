@@ -126,15 +126,16 @@ namespace VirtualWallet.Models
                 SqlDataReader dr = comm.ExecuteReader();
                 if (dr.Read())
                 {
-                    string nombre = "";
-                    string apellido = "";
+                    string nombre = dr.GetString(0);
+                    string apellido = dr.GetString(1);
+                    string direccion = dr.GetString(2);
+                    string provincia = dr.GetString(3);
+                    string ciudad = dr.GetString(4);
+                    string email = dr.GetString(5).Trim();
+                    int telefono = dr.GetInt32(6);
                     string usuario = "";
                     string contraseña = "";
-                    string email = dr.GetString(2).Trim();
-                    string direccion = dr.GetString(0);
-                    string provincia = dr.GetString(4);
-                    string ciudad = dr.GetString(3);
-                    int telefono = dr.GetInt32(1);
+                    
 
                     p = new Persona(id, nombre, apellido, email, usuario, contraseña, direccion, provincia, ciudad, telefono);
                 }

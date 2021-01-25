@@ -23,7 +23,19 @@
                                         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Varios"><br>
                                     </div>                                    
 
-                                    <button (click)="girar()" type="button" class="btn btn-primary">Transferir</button>
+                                    <button (click)="girar()" type="button" class="btn btn-primary">Transferir</button><br><br>
+                                    <div #alert class="alert alert-danger" role="alert" id="alert" style="display: none;">
+                                        Ha superado su límite permitido para giro al descubierto
+                                    </div>
+                                    <div #saldoNegativo class="alert alert-danger" role="alert" id="saldoNegativo" style="display: none;">
+                                        Su saldo es negativo. No puede solicitar giro al descubierto
+                                    </div>
+                                    <div #alert2 class="alert alert-warning" role="alert" id="alert2" style="display: none;">
+                                        Posee saldo suficiente. Utilice la opción Extracción
+                                    </div>
+                                    <div #success class="alert alert-success" role="alert" id="success" style="display: none;">
+                                        Se realizó el giro al descubierto
+                                    </div>
                                     
                                 </div>
                             

@@ -33,7 +33,7 @@ namespace VirtualWallet.Models
                 comm.Parameters.Add(new SqlParameter("@Saldo", nueva.Saldo));
                 comm.Parameters.Add(new SqlParameter("@TipoCuenta", nueva.TipoCuenta));
                 comm.Parameters.Add(new SqlParameter("@Estado", nueva.Estado));
-                comm.Parameters.Add(new SqlParameter("@IdCliente", nueva.Cliente.Id));
+                comm.Parameters.Add(new SqlParameter("@IdCliente", nueva.IdCliente));
 
                 id = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -165,9 +165,10 @@ namespace VirtualWallet.Models
                     decimal saldo = dr.GetDecimal(4);
                     string tipoCuenta = dr.GetString(5);
                     string estado = dr.GetString(6);
+                    int idCliente = dr.GetInt32(7);
 
 
-                    Cuenta p = new Cuenta(id, moneda, banco, numeroCuenta, saldo, tipoCuenta, estado, null);
+                    Cuenta p = new Cuenta(id, moneda, banco, numeroCuenta, saldo, tipoCuenta, estado, idCliente);
                     cuentas.Add(p);
                 }
 
@@ -200,9 +201,10 @@ namespace VirtualWallet.Models
                     decimal saldo = dr.GetDecimal(4);
                     string tipoCuenta = dr.GetString(5);
                     string estado = dr.GetString(6);
+                    int idCliente = dr.GetInt32(7);
 
 
-                    cuenta = new Cuenta(id, moneda, banco, numeroCuenta, saldo, tipoCuenta, estado, null);
+                    cuenta = new Cuenta(id, moneda, banco, numeroCuenta, saldo, tipoCuenta, estado, idCliente);
              
                 }
 
@@ -235,9 +237,10 @@ namespace VirtualWallet.Models
                     decimal saldo = dr.GetDecimal(4);
                     string tipoCuenta = dr.GetString(5);
                     string estado = dr.GetString(6);
+                    int idCliente = dr.GetInt32(7);
 
 
-                    cuenta = new Cuenta(id, moneda, banco, numeroCuenta, saldo, tipoCuenta, estado, null);
+                    cuenta = new Cuenta(id, moneda, banco, numeroCuenta, saldo, tipoCuenta, estado, idCliente);
 
                 }
 

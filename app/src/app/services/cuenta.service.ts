@@ -17,6 +17,11 @@ export class CuentaService {
     return this.http.get<Cuenta[]>(this.url+"cuenta", {headers:header});
   }
 
+  getCuenta(idCuenta:number): Observable<Cuenta>{
+    let header= new HttpHeaders().set('Content-Type','application/json');
+    return this.http.get<Cuenta>(this.url+"cuenta"+ "/" + idCuenta, {headers:header});
+  }
+
   updateSaldo(idCuenta:number, operacion:number, monto:number): Observable<Cuenta>{
     let header= new HttpHeaders().set('Content-Type','application/json');
     let urlParams=`${this.url}cuenta?idcuenta=${idCuenta}&operacion=${operacion}&monto=${monto}`;

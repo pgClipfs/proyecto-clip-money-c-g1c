@@ -12,7 +12,7 @@ namespace VirtualWallet.Models
         {
         }
 
-        public Cuenta(int id, string moneda, string banco, long numeroCuenta, decimal saldo, string tipoCuenta, string estado, Persona cliente)
+        public Cuenta(int id, string moneda, string banco, long numeroCuenta, decimal saldo, string tipoCuenta, string estado, int idCliente)
         {
             this.Id = id;
             this.Moneda = moneda;
@@ -21,7 +21,7 @@ namespace VirtualWallet.Models
             this.Saldo = saldo;
             this.TipoCuenta = tipoCuenta;
             this.Estado = estado;
-            this.Cliente = cliente;
+            this.IdCliente = idCliente;
         }
 
         public int Id { get; set; }
@@ -31,6 +31,6 @@ namespace VirtualWallet.Models
         public decimal Saldo { get; set; }
         public string TipoCuenta { get; set; }
         public string Estado { get; set; }
-        public Persona Cliente { get; set; }
+        public int IdCliente { get; set; }
     }
 }

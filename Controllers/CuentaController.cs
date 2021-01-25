@@ -28,6 +28,13 @@ namespace VirtualWallet.Controllers
             return cuentas;
         }
 
+        // GET: api/Cuenta/5
+        public Cuenta Get(int id)
+        {
+            GestorCuenta gCuenta = new GestorCuenta();
+            return gCuenta.ObtenerDatosCuenta(id);
+        }
+
         //POST: api/Cuenta
         public Cuenta Post(Cuenta cuenta)
         {

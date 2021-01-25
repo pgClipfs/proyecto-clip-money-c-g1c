@@ -7,4 +7,5 @@ export class Cuenta
         Saldo: number = 0;
         TipoCuenta: string = '';
         Estado: string = '';
+        IdCliente: number;
     }

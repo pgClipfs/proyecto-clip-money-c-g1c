@@ -14,18 +14,40 @@
                                         <input #monto type="text" class="form-control" id="formGroupExampleInput" placeholder="">
                                         <!--<input type="text" class="form-control" id="formGroupExampleInput" placeholder="">-->
                                         <br>
-                                        <label for="formGroupExampleInput2">Para:</label>
+                                        <label for="formGroupExampleInput2">Ingrese CVU del destinatario:</label>
                                         <input #cvu type="text" class="form-control" id="cvu" placeholder=""><br>
                                         <!--<input type="text" class="form-control" id="formGroupExampleInput2" placeholder=""><br>-->
-                                        <label for="formGroupExampleInput2">Fecha de ejecución</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="26/01/21"><br>
-                                        <label for="formGroupExampleInput2">Plazo de acreditación</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="En el acto"><br>
-                                        <label for="formGroupExampleInput2">Concepto</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Varios"><br>
+                                        <button (click)="obtenerNombre()" type="button" class="btn btn-primary">Continuar</button><br><br>
+                                        <div #alertSaldo class="alert alert-danger" role="alert" id="alertSaldo" style="display: none;">
+                                            No tiene saldo suficiente para realizar la transferencia
+                                        </div>
+                                        <div #alertDestinatario class="alert alert-danger" role="alert" id="alertDestinatario" style="display: none;">
+                                            No se encontró el CVU ingresado.
+                                        </div>
+                                        <div #alertMonto2 class="alert alert-danger" role="alert" id="alertMonto2" style="display: none;">
+                                            El monto debe ser un valor numérico mayor a cero
+                                        </div>
+                                        <div #datosTransferencia id="datosTransferencia" style="display: none;">
+                                            <label for="formGroupExampleInput2">Destinatario:</label>
+                                            <input #nombreDestinatario type="text" class="form-control" id="nombreDestinatario" placeholder="" readonly><br>
+
+                                            <label for="formGroupExampleInput2">Fecha de ejecución</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="26/01/21"><br>
+                                            <label for="formGroupExampleInput2">Plazo de acreditación</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="En el acto"><br>
+                                            <label for="formGroupExampleInput2">Concepto</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Varios"><br>
+                                            <button (click)="transferir()" type="button" class="btn btn-primary">Confirmar transferencia</button><br><br>
+                                            <div #alertMonto class="alert alert-danger" role="alert" id="alertMonto" style="display: none;">
+                                                El monto debe ser un valor numérico mayor a cero
+                                            </div>
+                                            <div #alertSuccess class="alert alert-success" role="alert" id="alertSuccess" style="display: none;">
+                                                La transferencia fue exitosa
+                                            </div>
+                                            <!--<button type="button" class="btn btn-primary">Transferir</button>-->
+                                        </div>
                                     </div>
-                                    <button (click)="transferir()" type="button" class="btn btn-primary">Transferir</button>
-                                    <!--<button type="button" class="btn btn-primary">Transferir</button>-->
+                                    
                                 </div>
                             </form>
                             <div class="card col-12 mr-1">

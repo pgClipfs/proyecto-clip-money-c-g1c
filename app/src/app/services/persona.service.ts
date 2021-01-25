@@ -17,4 +17,14 @@ export class PersonaService {
     return this.http.get<Persona>(this.url+"persona"+ "/" + idCliente, {headers:header});
   }
 
+  getUsuario(): Observable<Persona>{
+    let header= new HttpHeaders().set('Content-Type','application/json');
+    return this.http.get<Persona>(this.url+"persona/0", {headers:header});
+  }
+
+  updateUsuario(persona:Persona): Observable<Persona>{
+    let header= new HttpHeaders().set('Content-Type','application/json');
+    return this.http.put<Persona>(this.url+"persona", persona,{headers:header});
+  }
+
 }

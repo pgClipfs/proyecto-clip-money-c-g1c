@@ -13,17 +13,17 @@
                                         <label for="formGroupExampleInput">¿Cuánto dinero querés girar al descubierto?</label>
                                         <input [(ngModel)]="montoGiro" type="number" class="form-control" id="formGroupExampleInput" placeholder="">
                                         <br>
-                                        <label for="formGroupExampleInput2">Para:</label>
+                                        <!--<label for="formGroupExampleInput2">Para:</label>
                                         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder=""><br>
                                         <label for="formGroupExampleInput2">Fecha de ejecución</label>
                                         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="26/01/21"><br>
                                         <label for="formGroupExampleInput2">Plazo de acreditación</label>
                                         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="En el acto"><br>
                                         <label for="formGroupExampleInput2">Concepto</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Varios"><br>
+                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Varios"><br>-->
                                     </div>                                    
 
-                                    <button (click)="girar()" type="button" class="btn btn-primary">Transferir</button><br><br>
+                                    <button (click)="girar()" type="button" class="btn btn-primary">Girar al Descubierto</button><br><br>
                                     <div #alert class="alert alert-danger" role="alert" id="alert" style="display: none;">
                                         Ha superado su límite permitido para giro al descubierto
                                     </div>

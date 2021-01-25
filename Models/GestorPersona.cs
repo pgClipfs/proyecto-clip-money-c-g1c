@@ -147,7 +147,42 @@ namespace VirtualWallet.Models
 
         }
 
-        public void ModificarPersona(Persona p)
+        public Persona ObtenerPorUsuario(string usuario)
+        {
+            Persona p = null;
+
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = new SqlCommand("obtener_datos_usuario", conn);
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@Usuario", usuario));
+
+                SqlDataReader dr = comm.ExecuteReader();
+                if (dr.Read())
+                {
+                    int id = dr.GetInt32(0);
+                    string nombre = dr.GetString(1);
+                    string apellido = dr.GetString(2);
+                    string direccion = dr.GetString(3);
+                    string provincia = dr.GetString(4);
+                    string ciudad = dr.GetString(5);
+                    string email = dr.GetString(6).Trim();
+                    int telefono = dr.GetInt32(7);
+
+
+                    p = new Persona(id, nombre, apellido, email, usuario, string.Empty, direccion, provincia, ciudad, telefono);
+                }
+
+                dr.Close();
+            }
+
+            return p;
+
+        }
+
+        public Persona ModificarPersona(Persona p)
         {
 
             using (SqlConnection conn = new SqlConnection(StrConn))
@@ -168,6 +203,7 @@ namespace VirtualWallet.Models
 
 
             }
+            return p;
         }
 
         public void EditarPerfil(Persona p)

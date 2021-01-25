@@ -27,9 +27,22 @@ namespace VirtualWallet.Controllers
         // GET: api/Persona/5
         public Persona Get(int id)
         {
+            Persona persona = new Persona();
             GestorPersonas gPersona = new GestorPersonas();
-            return gPersona.ObtenerPorId(id);
+            if (id > 0)
+                persona = gPersona.ObtenerPorId(id);
+            else
+                persona = gPersona.ObtenerPorUsuario(User.Identity.Name);
+            return persona;
+
         }
+
+        //public Persona GetDatosPerfil(string usuario)
+        //{
+        //    string usuarioParam = string.IsNullOrEmpty(usuario) ? User.Identity.Name : usuario;
+        //    GestorPersonas gPersona = new GestorPersonas();
+        //    return gPersona.ObtenerPorUsuario(usuarioParam);
+        //}
 
         // POST: api/Persona
         public Persona Post(Persona persona)
@@ -42,10 +55,10 @@ namespace VirtualWallet.Controllers
         }
 
         // PUT: api/Persona
-        public void Put(Persona persona)
+        public Persona Put(Persona persona)
         {
             GestorPersonas gPersona = new GestorPersonas();
-            gPersona.ModificarPersona(persona);
+            return gPersona.ModificarPersona(persona);
 
         }
 
